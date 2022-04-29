@@ -1,5 +1,6 @@
 package browser;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -11,6 +12,7 @@ public class ChromeBrowser {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://google.com");
+		driver.findElement(By.name("q")).sendKeys("Selenium");
 
 	}
 

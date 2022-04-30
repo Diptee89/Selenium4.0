@@ -1,19 +1,24 @@
-package browser;
+package mvnforjenkins;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class ChromeBrowser {
-
-	public static void main(String[] args) {
+public class OpenBrowser {
+	
+	WebDriver driver;
+	
+	@Test
+	
+	public void setUp() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");
 
-		WebDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://google.com");
 		driver.findElement(By.name("q")).sendKeys("Selenium");
-
+//		driver.findElement(By.name("btnK")).click();
 	}
 
 }

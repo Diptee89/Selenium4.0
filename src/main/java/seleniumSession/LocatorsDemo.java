@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Locators {
+public class LocatorsDemo {
 
 	public static void main(String[] args) {
 		System.setProperty("webdriver.chrome.driver", "c:\\Drivers\\chromedriver.exe");
@@ -26,8 +26,9 @@ public class Locators {
 		driver.findElement(By.cssSelector("input[name='pass']")).clear();//CSS Selector – Tag and Attribute input[name=lastName] square brackets within which a specific attribute 
 		driver.findElement(By.cssSelector("input.inputtext[type='password']")).sendKeys("Pass@12345678");  //CSS Selector – tag, class, and attribute> input.inputtext[tabindex=1]
 
-		driver.findElement(By.cssSelector("label:contain('Email or Phone')"));
-
+		driver.navigate().refresh();
+		//Now in ID & Password has same class name; will use relative locators;
+//		driver.findElement(By.tagName("input")).ab
 		
 	}
 

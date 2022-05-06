@@ -20,6 +20,13 @@ public class OpenBrowser {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://google.com");
+		
+		// Get boolean value for is element display
+		boolean isButtonVisible = driver.findElement(By.cssSelector("[name='login']")).isDisplayed();
+		
+		 //returns true if element is enabled else returns false
+		  boolean value = driver.findElement(By.name("btnK")).isEnabled();
+		
 		driver.findElement(By.name("q")).sendKeys("selenium tutorial");
 		Thread.sleep(3000);
 
@@ -27,10 +34,10 @@ public class OpenBrowser {
 
 		System.out.println(optionsList.size());
 		for(WebElement e:optionsList) {
-			String value=e.getText();
-			System.out.println(value);
+			String elemen=e.getText();
+			System.out.println(elemen);
 			
-			if(value.contains("selenium")) {
+			if(elemen.contains("selenium")) {
 				e.click();
 				break;
 			}

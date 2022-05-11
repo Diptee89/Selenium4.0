@@ -3,6 +3,7 @@ package seleniumSession;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,7 +22,9 @@ public class ActionClassDemo {
 		driver.manage().window().maximize();
 		act = new Actions(driver);
 //		mouseOver();
-		dragAndDrop();
+//		drag();
+//		dragAndDrop();
+		scroll();
 	}
 
 	public static void mouseOver() throws InterruptedException {
@@ -32,6 +35,18 @@ public class ActionClassDemo {
 		//Mouse over in Developers menu then click on Status sub menu.
 		act.moveToElement(eleMenu).moveToElement(eleSubMenu).click().perform();
 		driver.navigate().back();
+	}
+	public static void drag() {
+		driver.get("https://jqueryui.com/draggable/");
+		
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.cssSelector(".demo-frame")));
+		
+		WebElement eleDrag=driver.findElement(By.cssSelector("#draggable"));
+//		act.moveToElement().moveByOffset(32, 32).build().perform();
+		
+		act.dragAndDropBy(eleDrag, 199, 84).build().perform();
+		act.clickAndHold(eleDrag).perform();
 	}
 	public static void dragAndDrop() {
 //		Drag And Drop Using Actions Class:
@@ -47,6 +62,15 @@ public class ActionClassDemo {
 		
 		
 	}
-	
+	public static void scroll() throws InterruptedException {
+		driver.get("https://jqueryui.com/");
+		
+		 //SCROLL DOWN
+		act.sendKeys(Keys.PAGE_DOWN).build().perform();
+		Thread.sleep(3000);
+		
+		 //SCROLL UP
+//		act.sendKeys(Keys.PAGE_UP).build().perform();
+	}
 
 }

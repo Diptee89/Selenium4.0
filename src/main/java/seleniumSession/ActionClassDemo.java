@@ -70,7 +70,7 @@ public class ActionClassDemo {
 		Thread.sleep(3000);
 		
 		 //SCROLL UP
-//		act.sendKeys(Keys.PAGE_UP).build().perform();
+		act.sendKeys(Keys.PAGE_UP).build().perform();
 	}
 
 }

@@ -11,8 +11,10 @@ package seleniumSession;
  * Returns – One of Boolean, Long, List, String, List, Boolean, WebElement, or null.
  */
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class JavascriptExecutorDemo {
@@ -26,18 +28,29 @@ public class JavascriptExecutorDemo {
 		driver.manage().window().maximize();
 
 		driver.get("https://www.softwaretestingmaterial.com");
-		
-		//To declare and set the start time
+
+		// To declare and set the start time
 		long startTime = System.currentTimeMillis();
-		//Calling executeAsyncScript() method to wait for 10 seconds
+		// Calling executeAsyncScript() method to wait for 10 seconds
 		js.executeAsyncScript("window.setTimeout(arguments&#91;arguments.length - 1], 10000);");
-		//To get the difference current time and start time
+		// To get the difference current time and start time
 		System.out.println("Wait time: " + (System.currentTimeMillis() - startTime));
-		
+
 //		js = (JavascriptExecutor) driver;
-		
+
 //		scrollByJS();
 //		scrollToBottom();
+	}
+
+	public static void scroll() {
+		driver.get("http://api.jquery.com/dblclick/");
+		driver.switchTo().frame(0);
+
+		WebElement ele = driver.findElement(By.cssSelector("html>body>div"));
+
+		// Here I used JavascriptExecutor interface to scroll down to the targeted
+		// element
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", ele);
 	}
 
 	public static void scrollByJS() throws InterruptedException {
@@ -65,16 +78,16 @@ public class JavascriptExecutorDemo {
 
 	public static void txtText() {
 //		https://www.softwaretestingmaterial.com/javascriptexecutor-selenium-webdriver/
-		
+
 //		Scenario #1: To Type Text in a Text Box
 //		To type Text in Selenium WebDriver without using sendKeys() method
 		js.executeScript("document.getElementById('Email').value='SoftwareTestingMaterial.com';");
 //		Scenario #2: To Click on a Button
 		js.executeScript("document.getElementById('btnSubmit').click();");
-		//or
+		// or
 //		js.executeScript("arguments&#91;0].click();", loginButton);
 //		Scenario #3: To Handle Checkbox
 		js.executeScript("document.getElementById('enter element id').checked=false;");
-	
+
 	}
 }

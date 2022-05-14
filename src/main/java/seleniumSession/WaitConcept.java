@@ -85,6 +85,11 @@ public class WaitConcept {
 
 		WebElement element = driver.findElement(By.xpath("//a/h3"));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
+//		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.id("iframe")));
+//		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+//		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.cssSelector(".demo-frame")));
+		
+
 		System.out.println(element.getText());
 
 		// Print all links

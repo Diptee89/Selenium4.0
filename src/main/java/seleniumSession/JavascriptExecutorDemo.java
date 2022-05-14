@@ -50,11 +50,14 @@ public class JavascriptExecutorDemo {
 
 		// Here I used JavascriptExecutor interface to scroll down to the targeted
 		// element
+//		How to scroll down to a particular element?
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", ele);
 	}
 
 	public static void scrollByJS() throws InterruptedException {
 		// To Scroll Web page Down using Selenium WebDriver:
+		
+//		How to scroll down a page using JavaScript in Selenium?
 		js.executeScript("window.scrollBy(0, 1000)", "");
 		/*
 		 * JavaScript scrollBy() method scrolls the document by the specified number of

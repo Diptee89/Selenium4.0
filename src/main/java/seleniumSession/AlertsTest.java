@@ -1,5 +1,16 @@
 package seleniumSession;
 
+/*
+ *  Can Selenium handle window pop-ups?
+ *  Selenium does not support handling pop-ups. Alert is used to display a warning message. It is a pop-up window that comes up on the screen.
+
+A few methods using which this can be achieved:
+
+Void dismiss(): This method is called when the ‘Cancel’ button is clicked in the alert box.
+Void accept(): This method is called when you click on the ‘OK’ button of the alert.
+String getText(): This method is called to capture the alert message.
+Void sendKeys(String stringToSed): This is called when you want to send some data to alert box.
+ */
 import java.time.Duration;
 
 import org.openqa.selenium.Alert;

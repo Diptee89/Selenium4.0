@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ImplicitWaitConcept {
+public class WaitConcept {
 	public static WebDriver driver;
 
 	public static void main(String[] args) {
@@ -24,6 +24,9 @@ public class ImplicitWaitConcept {
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		
+//		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(100));
+//		driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(10));
 
 		testImplicitlyWait();
 		testExplicitlyWait();

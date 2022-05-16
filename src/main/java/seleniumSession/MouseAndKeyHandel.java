@@ -12,7 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ActionClassDemo {
+public class MouseAndKeyHandel {
 	public static WebDriver driver;
 	public static Actions act;
 

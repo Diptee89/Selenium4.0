@@ -1,5 +1,6 @@
 package seleniumSession;
 
+import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -13,6 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WindowsHandel {
 	static WebDriver driver;
@@ -55,5 +57,40 @@ for (String handle : driver.getWindowHandles())
 driver.switchTo().window(handle);
 }
 	 */
+	public static void windowHandle() {
+//		https://www.selenium.dev/documentation/webdriver/browser/windows/
+//		We can get the window handle of the current window by using:
+//		driver.getWindowHandle();
+//		Switching windows or tabs 
+		
+		//Store the ID of the original window
+		String originalWindow = driver.getWindowHandle();
+		
+		//Check we don't have other windows open already
+		assert driver.getWindowHandles().size() == 1;
+		//Click the link which opens in a new window
+		driver.findElement(By.linkText("new window")).click();
+		
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		//Wait for the new window or tab
+//		wait.until(numberOfWindowsToBe(2));
+		
+		//Loop through until we find a new window handle
+		for (String windowHandle : driver.getWindowHandles()) {
+		    if(!originalWindow.contentEquals(windowHandle)) {
+		        driver.switchTo().window(windowHandle);
+		        break;
+		    }
+		}
+		
 
+		//Wait for the new tab to finish loading content
+//		wait.until(titleIs("Selenium documentation"));
+		
+		//Close the tab or window
+		driver.close();
+
+		//Switch back to the old tab or window
+		driver.switchTo().window(originalWindow);
+	}
 }

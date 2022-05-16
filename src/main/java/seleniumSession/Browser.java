@@ -11,6 +11,7 @@ public class Browser {
 		System.setProperty("webdriver.chrome.driver", "c:\\Drivers\\chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
+		
 		return driver;
 	}
 
@@ -21,9 +22,21 @@ public class Browser {
 		return driver;
 	}
 	public static WebDriver usingInternetExplorer() {
-		System.setProperty("webdriver.IE.driver", "c:\\Drivers\\IEDriverServer.exe");
+//		webdriver.ie.driver  The location of the IE driver binary.
+		System.setProperty("webdriver.ie.driver", "c:\\Drivers\\IEDriverServer.exe");
 		driver=new InternetExplorerDriver();
 		driver.manage().window().maximize();
 		return driver;
 	}
+	public static void navigate() {
+		//Convenient
+		driver.get("https://selenium.dev");
+
+		//Longer way
+		driver.navigate().to("https://selenium.dev");
+		driver.navigate().back(); //Pressing the browser’s back button
+		driver.navigate().forward(); //Pressing the browser’s forward button
+		driver.navigate().refresh(); //Refresh the current page
+	}
+	
 }

@@ -20,26 +20,66 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AlertsTest {
+	static ChromeDriver driver;
+	static WebDriverWait wait;
 
 	public static void main(String[] args) {
 		System.setProperty("webdriver.chrome.driver", "c:\\Drivers\\chromedriver.exe");
-		ChromeDriver driver=new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		
+
 		driver.get("http://demo.guru99.com/test/facebook.html");
-		
+
 		driver.findElement(By.id("email")).sendKeys("Demo@gmail.com");
 		driver.findElement(By.name("pass")).sendKeys("Pass1234");
 		driver.findElement(By.linkText("New Tours")).click();
-		
-		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-		Alert alert=wait.until(ExpectedConditions.alertIsPresent());
-		//Store the alert text in a variable
-		System.out.println(alert.getText());
-		//Press the OK button
-		alert.accept();
-		
-		
+
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
 	}
 
+	public static void acceptAlert() {
+		// Click the link to activate the alert
+//		driver.findElement(By.linkText("See an example alert")).click();
+
+		// Wait for the alert to be displayed and store it in a variable
+		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+
+		// Store the alert text in a variable
+		String text = alert.getText();
+
+		// Press the OK button
+		alert.accept();
+	}
+
+	public static void cancelAlert() {
+		// Click the link to activate the alert
+		driver.findElement(By.linkText("See a sample confirm")).click();
+
+		// Wait for the alert to be displayed
+		wait.until(ExpectedConditions.alertIsPresent());
+
+		// Store the alert in a variable
+		Alert alert = driver.switchTo().alert();
+
+		// Store the alert in a variable for reuse
+		String text = alert.getText();
+
+		// Press the Cancel button
+		alert.dismiss();
+	}
+
+	public static void promptAlert() {
+		//Click the link to activate the alert
+		driver.findElement(By.linkText("See a sample prompt")).click();
+
+		//Wait for the alert to be displayed and store it in a variable
+		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+
+		//Type your message
+		alert.sendKeys("Selenium");
+
+		//Press the OK button
+		alert.accept();
+	}
 }

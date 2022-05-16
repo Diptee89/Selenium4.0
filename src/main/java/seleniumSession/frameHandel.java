@@ -24,7 +24,7 @@ public class frameHandel {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 
-		driver.get("hhtps://");
+//		driver.get("http://10.138.108.44/MCKWFX5TEST/Main.aspx");
 
 	}
 

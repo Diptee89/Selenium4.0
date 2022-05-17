@@ -14,7 +14,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class DynamicWebTableTest {
+public class TableDynamicTest {
 	static WebDriver driver;
 
 	public static void main(String[] args) throws ParseException {

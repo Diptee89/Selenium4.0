@@ -22,13 +22,13 @@ public class MouseAndKeyHandel {
 
 		driver.manage().window().maximize();
 		act = new Actions(driver);
-//		mouseOver();
+		mouseOver();
 //		drag();
 //		dragAndDrop();
 //		scroll();
 //		contextClickdemo();
 //		doubleClickDemo();
-		keyBoard();
+//		keyBoard();
 		
 	}
 

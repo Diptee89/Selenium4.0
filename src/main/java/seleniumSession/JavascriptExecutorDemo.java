@@ -56,7 +56,7 @@ public class JavascriptExecutorDemo {
 
 	public static void scrollByJS() throws InterruptedException {
 		// To Scroll Web page Down using Selenium WebDriver:
-		
+
 //		How to scroll down a page using JavaScript in Selenium?
 		js.executeScript("window.scrollBy(0, 1000)", "");
 		/*
@@ -79,6 +79,24 @@ public class JavascriptExecutorDemo {
 
 	}
 
+	public static void eleHeighlighter() {
+		 WebElement elem = driver.findElement(By.className(""));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// use executeScript() method and pass the arguments
+		// Here i pass values based on css style. Yellow background color with solid red
+		// color border.
+		js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", elem);
+
+	}
+	// Draws a red border around the found element. Does not set it back anyhow.
+	public WebElement findElement(By by) {
+	    WebElement elem = driver.findElement(by);
+	    // draw a border around the found element
+	    if (driver instanceof JavascriptExecutor) {
+	        ((JavascriptExecutor)driver).executeScript("arguments[0].style.border='3px solid red'", elem);
+	    }
+	    return elem;
+	}
 	public static void txtText() {
 //		https://www.softwaretestingmaterial.com/javascriptexecutor-selenium-webdriver/
 

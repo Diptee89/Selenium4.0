@@ -1,4 +1,5 @@
 package seleniumSession;
+//https://www.swtestacademy.com/javascriptexecutor-in-selenium/
 /*https://www.softwaretestingmaterial.com/javascriptexecutor-selenium-webdriver/
  * JavaScript executor is an interface provided by Selenium .
  * It provides two methods such as “executeScript” & “executeAsyncScript” .
@@ -10,7 +11,7 @@ package seleniumSession;
  * Arguments – The arguments to the script(Optional). May be empty.
  * Returns – One of Boolean, Long, List, String, List, Boolean, WebElement, or null.
  */
-
+//https://www.swtestacademy.com/javascriptexecutor-in-selenium/
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

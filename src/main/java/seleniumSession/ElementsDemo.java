@@ -97,6 +97,7 @@ public class ElementsDemo {
 		By.xpath("//*[@id='FirstName']/following::input[@type='text']");
 		By.xpath("//*[@id='LastName']//preceding::input[@type='text']");
 		By.xpath("/html/tbody/tr[1]/td[1]"); // Full path
+		By.xpath("//td[@id='cell_QtyUnitOfMeasurement']//input[@name='btnQtyType']"); //Chained XPath
 
 	}
 
